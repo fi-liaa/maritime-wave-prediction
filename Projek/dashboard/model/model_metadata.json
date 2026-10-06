@@ -1,0 +1,28 @@
+{
+    "project": "Prediksi Tinggi Gelombang untuk Pelayaran",
+    "model": "Random Forest Regressor",
+    "target": "wave_height",
+    "features": [
+        "temp_avg",
+        "rh_avg",
+        "wind_speed",
+        "wind_gust",
+        "current_speed_bmkg",
+        "temperature_2m",
+        "relative_humidity_2m",
+        "surface_pressure",
+        "precipitation",
+        "wind_speed_10m",
+        "wind_direction_10m",
+        "uo",
+        "vo",
+        "current_speed_copernicus"
+    ],
+    "n_features": 14,
+    "training_rows": 511,
+    "evaluation_mae": 0.10119682539682547,
+    "evaluation_rmse": 0.1270484680250543,
+    "evaluation_r2": 0.5310230898294064,
+    "random_state": 42,
+    "n_estimators": 300
+}

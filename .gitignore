@@ -1,0 +1,36 @@
+.git
+.env
+.DS_Store
+airflow_settings.yaml
+__pycache__/
+astro
+.venv
+.astro/standalone/
+.astro/worktrees/
+airflow-webserver.pid
+webserver_config.py
+airflow.cfg
+airflow.db
+.astro/*.local.yml
+.astro/*.local.yaml
+
+**/.astro/dbt_metadata.json
+**/.astro/manifest.slim.json
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Python
+*.pyc
+*.pyo
+
+# Copernicus downloaded data
+*.nc
+
+# Local Streamlit cache
+.streamlit/cache/
+
+# Local environment
+.env
+# Astro local files
+.astro/
