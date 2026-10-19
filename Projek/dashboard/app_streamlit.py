@@ -218,7 +218,7 @@ def get_config(key, default=None):
 # Support both local MySQL names and TiDB Cloud names.
 DB_HOST = get_config("DB_HOST") or get_config("TIDB_HOST", "localhost")
 DB_PORT = get_config("DB_PORT") or get_config("TIDB_PORT", "3306")
-DB_NAME = get_config("DB_NAME") or get_config("TIDB_DATABASE", "maritim_db")
+DB_NAME = get_config("DB_NAME") or get_config("TIDB_DATABASE", "maritime_wave_db")
 DB_USER = get_config("DB_USER") or get_config("TIDB_USER", "root")
 DB_PASSWORD = get_config("DB_PASSWORD") or get_config("TIDB_PASSWORD", "")
 
@@ -255,10 +255,10 @@ def load_integrated_data():
     query = text("""
         SELECT
             b.port_code,
-            b.port_name,
+            p.port_name,
             b.timestamp_utc,
-            b.latitude,
-            b.longitude,
+            p.latitude,
+            p.longitude,
             b.temp_avg,
             b.rh_avg,
             b.wind_speed,
@@ -276,6 +276,8 @@ def load_integrated_data():
             c.vo,
             c.current_speed_copernicus
         FROM bmkg_maritime b
+        INNER JOIN ports p
+            ON p.port_code = b.port_code
         INNER JOIN openmeteo_weather o
             ON b.port_code = o.port_code
             AND b.timestamp_utc = o.timestamp_utc
