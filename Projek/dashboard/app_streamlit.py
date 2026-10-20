@@ -143,6 +143,26 @@ html, body, [class*="css"] {
     box-shadow: 0 8px 24px rgba(13,49,73,.05);
 }
 
+
+
+/* Latar belakang khusus tiga kartu Tentang Sistem */
+.about-info-card {
+    background: #0b2d47 !important;
+    border: 1px solid #174b6b;
+    border-radius: 17px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(13, 49, 73, 0.12);
+}
+
+/* Pertahankan seluruh teks berwarna putih */
+.about-info-card h3,
+.about-info-card p,
+.about-info-card b,
+.about-info-card li {
+    color: #ffffff !important;
+}
+
+
 .result-card {
     background: linear-gradient(135deg, #0a2f48, #087d9f);
     color: white;
@@ -532,8 +552,15 @@ elif menu == "🤖 Prediksi Tinggi Gelombang":
 
     defaults = latest if use_latest else pd.Series(dtype=float)
 
-    st.markdown("### Input Kondisi")
-    st.caption("Nilai dapat disesuaikan sebelum prediksi.")
+    
+    st.markdown(
+        """
+        <h3 style="color: black;">Input Kondisi</h3>
+        <p style="color: black;">Nilai dapat disesuaikan sebelum prediksi.</p>
+        """,
+        unsafe_allow_html=True
+)
+
 
     left_features = FEATURES[:7]
     right_features = FEATURES[7:]
@@ -812,16 +839,16 @@ else:
     with a:
         st.markdown(
             """
-            <div class="info-card">
+            <div class="info-card about-info-card">
                 <h3>Arsitektur Data</h3>
                 <p>
                 Sistem menggabungkan tiga sumber data menggunakan
                 <b>port_code + timestamp_utc</b> sebagai kunci integrasi.
                 </p>
                 <ul>
-                    <li>BMKG Maritime — tinggi gelombang dan cuaca maritim</li>
-                    <li>Open-Meteo — kondisi meteorologi</li>
-                    <li>Copernicus Marine — komponen arus laut</li>
+                    <li>BMKG Maritime: tinggi gelombang dan cuaca maritim</li>
+                    <li>Open-Meteo: kondisi meteorologi</li>
+                    <li>Copernicus Marine: komponen arus laut</li>
                 </ul>
             </div>
             """,
@@ -831,7 +858,7 @@ else:
     with b:
         st.markdown(
             """
-            <div class="info-card">
+            <div class="info-card about-info-card">
                 <h3>Machine Learning</h3>
                 <p>
                 Model menggunakan <b>Random Forest Regression</b> dengan target
@@ -851,7 +878,7 @@ else:
     st.markdown("")
     st.markdown(
         """
-        <div class="info-card">
+        <div class="info-card about-info-card">
             <h3>Catatan Interpretasi</h3>
             <p>
             Dashboard ini merupakan prototipe analitik dan pendukung keputusan.
