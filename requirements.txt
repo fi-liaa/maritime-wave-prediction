@@ -1,9 +1,0 @@
-streamlit
-pandas
-numpy
-scikit-learn
-joblib
-sqlalchemy
-mysql-connector-python
-python-dotenv
-plotly
